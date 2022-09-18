@@ -1,0 +1,31 @@
+{
+  "name": "botservin_twitch",
+  "version": "1.0.0",
+  "description": "A twitch bot specifically for Observin",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IDcLuc/Botservin.git"
+  },
+  "keywords": [
+    "bot",
+    "twitch",
+    "chat",
+    "discord",
+    "stream"
+  ],
+  "author": "IDcLuc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IDcLuc/Botservin/issues"
+  },
+  "homepage": "https://github.com/IDcLuc/Botservin#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "fs": "^0.0.1-security",
+    "tmi.js": "^1.8.5"
+  }
+}
