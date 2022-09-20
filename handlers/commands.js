@@ -8,7 +8,7 @@ module.exports = (bot, reload) => {
 
         commands.forEach((f) => {
             if (reload)
-                delete require.cache[require.resolve(`../command/${f}`)]
+                delete require.cache[require.resolve(`../command/${access}/${f}`)]
 
             const command = require(`../commands/${access}/${f}`)
             client.commands.set(command.name, command)
