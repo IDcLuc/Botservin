@@ -1,0 +1,32 @@
+{
+  "name": "botservin-discord",
+  "version": "1.0.0",
+  "description": "A discord bot for Observin",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IDcLuc/Botservin.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "twitch",
+    "stream",
+    "streamer"
+  ],
+  "author": "IDcLuc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IDcLuc/Botservin/issues"
+  },
+  "homepage": "https://github.com/IDcLuc/Botservin#readme",
+  "dependencies": {
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.2",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.2.10"
+  }
+}
