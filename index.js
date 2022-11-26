@@ -43,6 +43,4 @@ client.loadSlash = async () => {
 
 if (process.argv[2]) client.loadSlash()
 
-module.exports = client
-
 void client.login(process.env.token)
