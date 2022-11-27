@@ -1,7 +1,6 @@
 const getFiles = require('../util/getFiles')
 
-module.exports = (bot, reload) => {
-    const { client } = bot
+module.exports = (client, reload) => {
     let events = getFiles("./events/", ".js")
 
     if (events.length === 0){
@@ -10,38 +9,35 @@ module.exports = (bot, reload) => {
 
     events.forEach((file, i) => {
         if (reload)
-            delete require.cache[require.resolve('../events/file')]
+            delete require.cache[require.resolve(`../events/${file}`)]
         const event = require(`../events/${file}`)        
         void client.events.set(event.name, event)
         if (!reload)
             console.log(`${i + 1}. ${file} loaded`)
     })
     if (!reload)
-        initEvents(bot)
+        initEvents(client)
 
 }
 
-function triggerEventHandler(bot, event, ...args) {
-    const {client} = bot
+function triggerEventHandler(client, event, ...args) {
 
     try {
         if (client.events.has(event))
-            client.events.get(event).run(bot, ...args)
+            client.events.get(event).run(client, ...args)
         else
             throw new Error(`Event "${event}" doesn't exist!`)
     } catch(err) {
-        console.log(err)
+        throw new Error(err)
     }
 }
 
-function initEvents(bot) {
-    const {client} = bot 
-
+function initEvents(client) {
     client.on("ready", () => {
-        triggerEventHandler(bot, "ready")
+        triggerEventHandler(client, "ready")
     })
 
     client.on("interactionCreate", interaction => {
-        triggerEventHandler(bot, "interactionCreate", interaction)
+        triggerEventHandler(client, "interactionCreate", interaction)
     })
 }
