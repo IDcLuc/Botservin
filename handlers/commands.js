@@ -1,6 +1,6 @@
 const fs = require('fs')
 const getFiles = require('../util/getFiles')
-module.exports = ({ client }, reload) => {
+module.exports = (client, reload) => {
     fs.readdirSync('./commands/').forEach(category => {
         getFiles(`./commands/${category}`, ".js").forEach(f => {
             if (reload) delete require.cache[require.resolve(`../commands/${category}/${f}`)]
@@ -10,6 +10,6 @@ module.exports = ({ client }, reload) => {
         })
     })
     if (client.commands.size == 0) console.log('No slash command loaded')
-    else console.log(`${client.commands.size} commands loaded.`)
+    else if (!reload) console.log(`${client.commands.size} commands loaded.`)
 
 }
