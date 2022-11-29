@@ -3,7 +3,7 @@ const { REST, Routes } = require('discord.js')
 module.exports = async (client, exit) => {
     client.loadCommands(client, true)
 
-    if (!reload) console.log(`Refreshing ${client.commands.size} slash commands`);
+    console.log(`Refreshing ${client.commands.size} slash commands`);
 
     const commands = []
     client.commands.forEach(command => {
@@ -16,7 +16,7 @@ module.exports = async (client, exit) => {
         Routes.applicationCommands('1002272295143878758'),
         { body: commands }
     ).then(data => {
-        if (!reload) console.log(`Successfully loaded ${data.length || 0} slash commands.`)
+        console.log(`Successfully loaded ${data.length || 0} slash commands.`)
         if (exit) process.exit(0)
     }).catch(err => {
         console.log(err)
