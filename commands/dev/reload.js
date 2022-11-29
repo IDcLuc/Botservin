@@ -1,24 +1,21 @@
-const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js')
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
 
 module.exports = {
-    data: {
-        name: 'reload',
-        description: 'Reload bot commands or events',
-        options: [
-            {
-                name: 'commands',
-                description: 'Reload comamnds',
-                type: ApplicationCommandOptionType.Subcommand
-            },
-            {
-                name: 'events',
-                description: 'Reload events',
-                type: ApplicationCommandOptionType.Subcommand
-            },
-        ]
-    },
+    name: 'reload',
+    category: 'dev',
     devOnly: true,
-    run: async ({client, interaction}) => {
+    data: new SlashCommandBuilder()
+        .setName('reload')
+        .setDescription('Reload bot commands or events')
+        .addSubcommand(subcommand => 
+            subcommand
+                .setName('commands')
+                .setDescription('Reload commands'))
+        .addSubcommand(subcommand =>
+            subcommand
+                .setName('events')
+                .setDescription('Reload events')),
+    run: async ({ client, interaction }) => {
         switch (interaction.options.getSubcommand()) {
             case 'commands':
                 await interaction.reply('Reloading commands.')
