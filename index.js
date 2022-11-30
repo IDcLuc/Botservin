@@ -1,16 +1,14 @@
 const Discord = require('discord.js');
-const {Routes, REST} = require('discord.js');
+const fs = require('fs');
 require('dotenv').config()
 
 const client = new Discord.Client({
     intents: [
         "Guilds",
-        "GuildMembers",
-        "GuildMessages",
     ],
 })
 
-
+client.categories = fs.readdirSync('./commands/')
 client.commands = new Discord.Collection()
 client.events = new Discord.Collection()
 
