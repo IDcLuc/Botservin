@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/IDcLuc/Botservin#readme",
   "dependencies": {
+    "canvas": "^2.10.2",
     "discord.js": "^14.7.0",
     "dotenv": "^16.0.2",
     "fs": "^0.0.1-security",

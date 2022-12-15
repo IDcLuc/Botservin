@@ -40,4 +40,8 @@ function initEvents(client) {
     client.on("interactionCreate", interaction => {
         triggerEventHandler(client, "interactionCreate", interaction)
     })
+
+    client.on("guildMemberAdd", member => {
+        triggerEventHandler(client, "guildMemberAdd", member)
+    })
 }
