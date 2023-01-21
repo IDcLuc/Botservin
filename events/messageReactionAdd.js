@@ -11,10 +11,9 @@ module.exports = {
     run: async (client, reaction, user) => {
         if (reaction.partial) {
             try {
-                await reaction.fetch();
+                await reaction.fetch()
             } catch (e) {
-                console.error(e);
-                return;
+                return console.error(e)
             }
         }
     
