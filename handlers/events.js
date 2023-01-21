@@ -44,4 +44,8 @@ function initEvents(client) {
     client.on("guildMemberAdd", member => {
         triggerEventHandler(client, "guildMemberAdd", member)
     })
+
+    client.on('messageReactionAdd', (reaction, user) => {
+        triggerEventHandler(client, 'messageReactionAdd', reaction, user)
+    })
 }

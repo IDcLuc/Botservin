@@ -5,8 +5,14 @@ require('dotenv').config()
 const client = new Discord.Client({
     intents: [
         "Guilds",
-        "GuildMembers"
+        "GuildMembers",
+        "GuildMessageReactions"
     ],
+    partials: [
+        Discord.Partials.Message,
+        Discord.Partials.Channel,
+        Discord.Partials.Reaction
+    ]
 })
 
 client.categories = fs.readdirSync('./commands/')
