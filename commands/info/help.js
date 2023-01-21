@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require("discord.js")
-const slashInfo = require('../../slashInfo')
+const slashInfo = require('../../slashEmbeds')
 
 const commands = []
 for (cmd in slashInfo) {
@@ -35,7 +35,7 @@ module.exports = {
                 .setTitle(command.name)
                 .setDescription(command.description || "No description found Please report this with /report")
             
-            if (command.fields) embed.addFields(command.fields).setFooter({ text: "<>: required argument, []: optional argument" })
+            if (command.fields) embed.addFields(command.fields).setFooter({ text: "<required argument> | [optional argument]" })
 
             interaction.reply({ embeds: [embed] })
         } else {
